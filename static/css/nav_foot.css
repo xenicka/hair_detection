@@ -1,0 +1,106 @@
+img {
+  display: block;
+  margin: 0%;
+  width: 30%; /* Adjust as needed */
+}
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0rem 4rem;
+  background-color: #b0c4b7;
+}
+
+.logo-container {
+  justify-self: start;
+}
+
+.right {
+  justify-self: end;
+  display: flex;
+  gap: 10rem;
+}
+
+.right a {
+  text-decoration: none;
+  color: #00253f;
+  font-family: "Playfair Display", serif;
+  font-size: large;
+}
+@media (max-width: 849px) {
+  .navbar {
+    padding: 1rem 0.4rem;
+  }
+  img {
+    width: 8rem;
+    margin: 0%;
+  }
+  .right {
+    margin-right: 2vw;
+    gap: 2rem;
+  }
+  .right a {
+    padding-right: 2;
+    font-size: 2vw;
+  }
+}
+@media (min-width: 850px) and (max-width: 1101px) {
+  img {
+    width: 10rem;
+  }
+  .right {
+    justify-self: end;
+    display: flex;
+    gap: 2.6rem;
+  }
+  /* navbar up */
+}
+@media (min-width: 1102px) {
+  img {
+    width: 13rem;
+    gap: 2rem;
+    padding-right: 1rem;
+  }
+  .right {
+    gap: 5rem;
+  }
+  .right a {
+    font-size: 1.4rem;
+  }
+}
+.footer_section_1 {
+  display: flex;
+  background-color: #b0c4b7;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically (if needed) */
+}
+
+footer {
+  background: #b0c4b7;
+  color: #00253f;
+  padding: 0.3vw;
+  margin: 0; /* Removes any margin */
+}
+
+.footer_section_1 img {
+  display: block;
+  width: 20vw;
+  margin-bottom: -1vw;
+}
+.footer_section_2 {
+  display: block;
+  text-align: center;
+  background-color: #b0c4b7;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically (if needed) */
+}
+h2 {
+  font-size: 1.5vw;
+  margin: 0.4vw;
+  margin-top: 2vw;
+}
+
+p {
+  margin: 0.5vw;
+  font-size: 0.5rem;
+}

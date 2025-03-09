@@ -1,0 +1,87 @@
+{% extends "skelet.html" %}
+
+<!-- title -->
+{% block title %}Detect hair{% endblock %}
+<!-- css  -->
+{% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/detect_hair.css') }}"
+/>
+{% endblock %}
+<!-- main text -->
+{% block content %}
+<h1>HAIR TYPE:</h1>
+<div id="upload-area">
+  <input type="file" id="file-input" accept="image/*" />
+  <button id="upload-button">Upload</button>
+</div>
+<div id="result"></div>
+<div class="container">
+  <div class="text">
+    <p>OUR MISSION</p>
+    <h1>Making haircare routine easier for everyone</h1>
+    <div class="main_text">
+      <p>
+        We help people understand their hair type, diagnose issues like
+        alopecia, and receive personalized care recommendations.
+      </p>
+    </div>
+    <h1>Hair</h1>
+    <div class="features">
+      <div class="feature">
+        <div class="circle" onmouseover="updateText(this)">
+          <img
+            id="icon1"
+            src="{{ url_for('static', filename='images/straight.png') }}"
+            alt="STRAIGHT"
+          />
+          <div class="tooltip">
+            Tailored hair care based on your hair type for optimal results
+          </div>
+        </div>
+        <p>STRAIGHT</p>
+      </div>
+
+      <div class="feature">
+        <div class="circle" onmouseover="updateText(this)">
+          <img
+            id="icon2"
+            src="{{ url_for('static', filename='images/wavy.png') }}"
+            alt="WAVY"
+          />
+          <div class="tooltip">
+            AI for precise detection, pioneering the all-in-one platform for
+            your hair care needs
+          </div>
+        </div>
+        <p>WAVY</p>
+      </div>
+
+      <div class="feature">
+        <div class="circle" onmouseover="updateText(this)">
+          <img
+            id="icon3"
+            src="{{ url_for('static', filename='images/curly.png') }}"
+            alt="CURLY"
+          />
+          <div class="tooltip">
+            Identifying health issues at an early stage for effective prevention
+          </div>
+        </div>
+        <p>CURLY</p>
+      </div>
+    </div>
+  </div>
+  <div class="button">
+    <input type="file" id="file-input" accept="image/*" />
+    <button id="upload-button">Upload</button>
+  </div>
+</div>
+
+{% endblock %}
+
+<!-- script -->
+{% block script %}
+<script src="{{ url_for('static', filename='js/detect_hair.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,148 @@
+body {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+}
+.container {
+  padding: 0%;
+  margin: 0%;
+  text-align: center;
+  height: 100vh;
+  display: block;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+}
+#your_journey {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 2%;
+  color: #00253f;
+}
+.container-form {
+  margin: 0% 10% 0% 10%;
+  padding: 0%;
+  display: grid;
+  place-items: center;
+}
+#register {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  color: #00253f;
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0% 0% 0% 0%;
+}
+
+input {
+  display: block; /* Ensures input stays on a new line */
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  border-bottom: 1px solid #00253f;
+  padding: 1rem 0;
+  margin: 1rem; /* Centers input */
+  outline: none;
+  display: block;
+  align-items: center; /* Ensures each element is on a new line */
+  width: 40%; /* Adjust as needed */
+}
+
+button {
+  margin-bottom: 2%;
+  background-color: #9cd6c4;
+  width: 140px;
+  height: 33px;
+  font-family: "Montserrat", sans-serif;
+
+  cursor: pointer;
+  border: none;
+  border-radius: 11px;
+  color: white;
+}
+/* mobile */
+@media (max-width: 600px) {
+  .container {
+    height: 80%;
+  }
+  img {
+    width: 80%;
+  }
+  #register {
+    font-size: 2rem;
+    margin-bottom: 3%;
+  }
+  #your_journey {
+    font-size: 0.8rem;
+  }
+  input {
+    font-size: 0.9rem;
+    width: 80%;
+  }
+}
+
+/* For Notebooks  */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    height: 60%;
+  }
+  img {
+    width: 70%;
+  }
+  body {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+  }
+  input {
+    font-size: 0.9rem;
+    width: 60%;
+  }
+}
+
+/* For Monitors (large screens: width above 1024px) */
+@media (min-width: 1025px) {
+  img {
+    width: 30%;
+  }
+  .container {
+    height: 90%;
+  }
+}
+
+#account {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 2%;
+  color: #00253f;
+}
+.fade-in {
+  opacity: 0; /* Изображение изначально невидимо */
+  transform: translateY(-30px); /* Изображение начинает с выше своего места */
+  animation: fadeInDown 2s ease-in-out forwards; /* Применяем анимацию fadeInDown */
+}
+
+/* Ключевые кадры для анимации fade-in и падения */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0; /* Изображение невидимо */
+    transform: translateY(-30px); /* Изображение немного выше */
+  }
+  100% {
+    opacity: 1; /* Изображение становится видимым */
+    transform: translateY(0); /* Изображение опускается на свое место */
+  }
+}
+button:hover {
+  background-color: #005f73;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05); /* Slightly enlarges the button */
+}
+.error {
+  font-family: "Montserrat", sans-serif;
+}

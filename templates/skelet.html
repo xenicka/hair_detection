@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+    />
+
+    <!-- Block for title to be unique for each page -->
+    <title>{% block title %}Hairvana{% endblock %}</title>
+
+    <!-- Block for unique CSS for each page -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/nav_foot.css') }}"
+    />
+    {% block css %} {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo-container">
+          <a href="/">
+            <img
+              src="{{ url_for('static', filename='images/logo_bakalarka_2.png') }}"
+              alt="Logo"
+              class="logo"
+            />
+          </a>
+        </div>
+        <div class="right">
+          {% if is_authenticated %}
+          <a href="/detect_hair">Detect hair</a>
+          <a href="/detect_alopecia">Detect alopecia</a>
+          <a href="/account_page">Account</a>
+          <a href="/logout">Log Out</a>
+          {% else %}
+          <a href="/sign_in">Log In</a>
+          <a href="/register">Sign Up</a>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Block -->
+    <div class="content">{% block content %}{% endblock %}</div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer">
+        <div class="footer_section_1">
+          <a href="/">
+            <img
+              src="{{ url_for('static', filename='images/logo_bakalarka_2.png') }}"
+              alt="Logo"
+              class="logo"
+            />
+          </a>
+        </div>
+        <div class="footer_section_2">
+          <h2>Contact</h2>
+          <p>hairycollab@gmail.com</p>
+          <p>+421 123 456 789</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Block for unique scripts -->
+    {% block script %}
+    <script src="{{ url_for('static', filename='js/about.js') }}"></script>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,130 @@
+{% extends "skelet.html" %}
+
+<!-- title -->
+{% block title %}About Us{% endblock %}
+<!-- css  -->
+{% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/about.css') }}"
+/>
+{% endblock %}
+
+<!-- main text -->
+{% block content %}
+<div class="img-container">
+  <img
+    src="{{ url_for('static', filename='images/about_page.png') }}"
+    alt="About"
+    class="about-image"
+  />
+</div>
+<div class="text-container">
+  <p>OUR MISSION</p>
+  <h1>Making haircare routine easier for everyone</h1>
+  <div class="main_text">
+    <p>
+      We help people understand their hair type, diagnose issues like alopecia,
+      and receive personalized care recommendations. Our service analyzes
+      uploaded photos, provides tailored care plans, and supports maintaining
+      healthy hair. We strive to make hair care simple, accessible, and
+      effective for everyone.
+    </p>
+  </div>
+  <p>BENEFITS</p>
+  <h1>What makes us special?</h1>
+  <p id="there_should_be_text"></p>
+</div>
+<div class="features">
+  <div class="feature">
+    <div class="circle pink" onmouseover="updateText(this)">
+      <img
+        id="icon1"
+        src="{{ url_for('static', filename='images/icon1.png') }}"
+        alt="PERSONALIZATION"
+      />
+      <div class="tooltip">
+        Tailored hair care based on your hair type for optimal results
+      </div>
+    </div>
+    <p>PERSONALIZATION</p>
+  </div>
+
+  <div class="feature">
+    <div class="circle green" onmouseover="updateText(this)">
+      <img
+        id="icon2"
+        src="{{ url_for('static', filename='images/icon2.png') }}"
+        alt="INNOVATION"
+      />
+      <div class="tooltip">
+        AI for precise detection, pioneering the all-in-one platform for your
+        hair care needs
+      </div>
+    </div>
+    <p>INNOVATION</p>
+  </div>
+
+  <div class="feature">
+    <div class="circle lightgreen" onmouseover="updateText(this)">
+      <img
+        id="icon3"
+        src="{{ url_for('static', filename='images/icon3.png') }}"
+        alt="EARLY DETECTION"
+      />
+      <div class="tooltip">
+        Identifying health issues at an early stage for effective prevention
+      </div>
+    </div>
+    <p>EARLY DETECTION</p>
+  </div>
+
+  <div class="feature">
+    <div class="circle darkgreen" onmouseover="updateText(this)">
+      <img
+        id="icon4"
+        src="{{ url_for('static', filename='images/icon4.png') }}"
+        alt="COMPLETE SOLUTION"
+      />
+      <div class="tooltip">
+        A holistic approach to both scalp care and hair types for ultimate
+        results
+      </div>
+    </div>
+    <p>COMPLETE SOLUTION</p>
+  </div>
+</div>
+<div class="container_story">
+  <div class="text-box">
+    <h2>From hair strugle to Empowerment</h2>
+    <p>
+      When my hair became severely damaged, brittle, and started breaking along
+      the length due to constant bleaching and heat styling, I realized it was
+      time for a change. As I began searching for information online, I
+      encountered an overwhelming amount of advice and hair care methods, many
+      of which contradicted each other. At the same time, I couldn’t figure out
+      which approach would work best for my hair. That’s when I came up with the
+      idea of creating a unified platform that would gather all the essential
+      information and help women take proper care of their hair to achieve
+      healthy and beautiful results. But this project is not just about beauty.
+      It also provides the opportunity to assess hair health and detect early
+      signs of alopecia, allowing for timely consultation with a specialist. My
+      goal is to simplify hair care, make it clear and accessible, and help
+      every woman feel confident and comfortable, knowing that her hair is
+      healthy.
+    </p>
+  </div>
+  <div class="img-box">
+    <img
+      src="{{ url_for('static', filename='images/empowerment.png') }}"
+      alt="Empowerment"
+      class="empowerment-image"
+    />
+  </div>
+</div>
+{% endblock %}
+
+<!-- script -->
+{% block script %}
+<script src="{{ url_for('static', filename='js/about.js') }}"></script>
+{% endblock %}

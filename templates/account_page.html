@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <h1>Welcome, {{ user.name }}</h1>
+    <p>Email: {{ user.email }}</p>
+    {% if user.hair_type %}
+    <h2>Hair Prediction Results:</h2>
+    <p>{{ user.hair_type }}</p>
+    <!-- You can format it more, if necessary -->
+    {% else %}
+    <p>No predictions available yet.</p>
+    {% endif %} {% if user.alopecia_type %}
+    <h2>Alopecia Prediction Results:</h2>
+    <p>{{ user.alopecia_type }}</p>
+    <!-- You can format it more, if necessary -->
+    {% else %}
+    <p>No predictions for alopecia available yet.</p>
+    {% endif %}
+
+    <a href="/sign_in">Logout</a>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* #upload-area {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  margin: 20px auto;
+  width: 300px;
+} */
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+#uploaded-image {
+  margin-top: 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  background-image: url("../images/dt_har.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  display: block;
+  justify-content: flex-end;
+  color: white;
+}
+.text {
+  align-items: left;
+  margin-left: 50vw;
+  /* background-color: red; */
+  padding-top: 1vw;
+}
+p {
+  font-size: 0.8vw;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin-top: 2vw;
+  color: #00253f;
+}
+h1 {
+  font-size: 2vw;
+  font-family: "Playfair Display", serif;
+  margin: 0;
+  text-align: center;
+  color: #00253f;
+}
+.main_text {
+  text-align: center;
+}
+.main_text p {
+  font-family: "Lora", serif;
+  text-align: center;
+  margin-bottom: 4vw;
+}
+.features {
+  display: flex; /* Use flexbox to make items align in one row */
+  justify-content: center; /* Center the circles horizontally */
+  align-items: center; /* Center the circles vertically */
+  flex-wrap: wrap; /* Allow the circles to wrap if necessary (optional) */
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 3vw;
+  margin-top: 3vw;
+}
+
+.circle {
+  width: 8vw;
+  height: 8vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0; /* Remove extra spacing */
+  padding: 0;
+  background-color: #b0c4b7;
+}
+
+#icon1 {
+  width: 10%;
+}
+#icon2 {
+  width: 14%;
+}
+#icon3 {
+  width: 27%;
+}
+
+.circle:hover {
+  transform: scale(1.1); /* Увеличение при наведении */
+}
+.tooltip {
+  display: none;
+}
+.button {
+  padding-left: 50vw;
+  padding-top: 7vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}

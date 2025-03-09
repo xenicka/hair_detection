@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/sign_in.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-container">
+        <img
+          class="fade-in"
+          src="{{ url_for('static', filename='images/logo_bakalarka_2.png') }}"
+          alt="My Image"
+        />
+      </div>
+      <p id="your_journey">WElCOME BACK</p>
+      <div class="container-form">
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+
+        <p class="error" id="error"></p>
+        <button onclick="register()">Sign in</button>
+        <p id="account">
+          Don't have an account? <a href="register">Register</a>
+        </p>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/sign_in.js') }}"></script>
+  </body>
+</html>

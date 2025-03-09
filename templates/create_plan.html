@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hair Care Reminder</title>
+  </head>
+  <body>
+    <h2>Set Up Your Hair Care Routine</h2>
+
+    <label for="washingFrequency">How often do you wash your hair?</label>
+    <select id="washingFrequency" name="washingFrequency">
+      <option value="daily">Every day or every other day</option>
+      <option value="2-3">Every 2-3 days</option>
+      <option value="4-7">Every 4-7 days</option>
+    </select>
+    <button onclick="addToGoogleCalendar()">Add to Google Calendar</button>
+    <script src="{{ url_for('static', filename='js/create_plan.js') }}"></script>
+  </body>
+</html>
