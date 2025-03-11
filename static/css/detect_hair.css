@@ -4,12 +4,12 @@ body {
   padding: 0;
 }
 
-/* #upload-area {
+#upload-area {
   border: 2px dashed #ccc;
   padding: 20px;
   margin: 20px auto;
   width: 300px;
-} */
+}
 #result {
   margin-top: 20px;
   font-weight: bold;
@@ -35,21 +35,32 @@ body {
   align-items: left;
   margin-left: 50vw;
   /* background-color: red; */
-  padding-top: 1vw;
+  padding-top: 0.1vw;
 }
 p {
-  font-size: 0.8vw;
+  font-size: 1vw;
   font-family: "Montserrat", sans-serif;
   text-align: center;
   margin-top: 2vw;
   color: #00253f;
 }
+#what_we_do {
+  font-size: 1.5vw;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: #00253f;
+}
+.tooltip {
+  display: none;
+}
+
 h1 {
-  font-size: 2vw;
+  font-size: 1.4vw;
   font-family: "Playfair Display", serif;
   margin: 0;
   text-align: center;
   color: #00253f;
+  margin-bottom: 2vw;
 }
 .main_text {
   text-align: center;
@@ -57,21 +68,23 @@ h1 {
 .main_text p {
   font-family: "Lora", serif;
   text-align: center;
-  margin-bottom: 4vw;
+  margin-bottom: 2vw;
 }
 .features {
   display: flex; /* Use flexbox to make items align in one row */
   justify-content: center; /* Center the circles horizontally */
   align-items: center; /* Center the circles vertically */
-  flex-wrap: wrap; /* Allow the circles to wrap if necessary (optional) */
+  flex-wrap: wrap;
 }
-
+.broken-top-border {
+  padding-top: 4vw;
+  padding-bottom: 3vw;
+}
 .feature {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 3vw;
-  margin-top: 3vw;
+  margin: 1vw 1.7vw;
 }
 
 .circle {
@@ -101,13 +114,221 @@ h1 {
   transform: scale(1.1); /* Увеличение при наведении */
 }
 .tooltip {
+  position: relative;
+
   display: none;
 }
 .button {
   padding-left: 50vw;
-  padding-top: 7vw;
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  padding-bottom: 3vw;
+}
+#upload-text {
+  font-size: 1vw;
+  color: #00253f;
+  cursor: pointer;
+  text-decoration: none;
+  padding-bottom: 1vw;
+}
+
+#upload-text:hover {
+  text-decoration: underline;
+}
+
+#upload-button {
+  background-color: #9cd6c4;
+  width: 10vw;
+  height: 4vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.6vw;
+  cursor: pointer;
+  border: none;
+  border-radius: 11px;
+  color: #00253f;
+}
+
+.card-container {
+  width: 15vw;
+  height: 18vw;
+}
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.card-container:hover .card {
+  transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 2vw;
+  font-weight: bold;
+  text-align: center;
+}
+.card-front {
+  background: white;
+  color: black;
+  font-size: 2vw;
+}
+
+.card-back {
+  background: #b0c4b7;
+  color: white;
+  transform: rotateY(180deg);
+  font-size: 1.2vw;
+}
+
+.cards-container {
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2vw;
+  justify-content: center;
+}
+.cards-container2 {
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2vw;
+  justify-content: center;
+}
+k {
+  padding-right: 1vw;
+  padding-left: 1vw;
+}
+
+.broken-top-border {
+  height: 12vw;
+  width: 35vw;
+  /* Вместо фиксированной высоты используем min-height,
+     чтобы блок автоматически расширялся под контент */
+
+  /* Задаём боковые и нижнюю границы */
+  border-left: 0.2vw solid #999;
+  border-right: 0.2vw solid #999;
+  border-bottom: 0.2vw solid #999;
+
+  /* Для псевдоэлементов */
+  position: relative;
+  margin: 5vw 5vw 2vw 5vw; /* отступ для наглядности */
+  padding: 2vw; /* внутренние отступы, чтобы текст не прилипал к краям */
+}
+
+/* Псевдоэлементы для двух отрезков сверху */
+.broken-top-border::before,
+.broken-top-border::after {
+  content: "";
+  position: absolute;
+  top: 0; /* Расположение у верхней границы */
+  height: 0.2vw; /* Толщина линии */
+  background: #999; /* Цвет линии */
+}
+
+/* Левая часть верхней границы */
+.broken-top-border::before {
+  left: 0;
+  width: 40%;
+  height: 0.2vw; /* Толщина линии */
+}
+
+/* Правая часть верхней границы */
+.broken-top-border::after {
+  right: 0;
+  width: 40%;
+  height: 0.2vw; /* Толщина линии */
+}
+.broken-top-border .title {
+  position: absolute;
+  top: 0; /* Выравниваем по верхнему краю контейнера */
+  left: 50%; /* Горизонтальный центр контейнера */
+  transform: translate(-50%, -50%);
+  padding: 0 10px; /* Внутренние отступы */
+  font-size: 2vw; /* Размер шрифта */
+  font-weight: bold;
+  margin: 0; /* Сбрасываем отступы у заголовка */
+}
+@media (max-width: 600px) {
+  .container {
+    min-height: 30vh;
+    width: 100%;
+  }
+  .broken-top-border {
+    margin-top: 6vw;
+  }
+  .text {
+    padding-top: 8vw;
+  }
+  p {
+    font-size: 1.5vw;
+  }
+  h1 {
+    font-size: 2.5vw;
+  }
+  .main_text p {
+    font-size: 2vw;
+  }
+}
+
+/* For Notebooks  */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    min-height: 60vh;
+    width: 100%;
+  }
+
+  p {
+    font-size: 1vw;
+  }
+  h1 {
+    font-size: 2.5vw;
+  }
+  .main_text p {
+    font-size: 2vw;
+  }
+}
+
+/* For Monitors (large screens: width above 1024px) */
+@media (min-width: 1025px) {
+}
+/* ipad mini */
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+  .container {
+    min-height: 40vh;
+    width: 100%;
+  }
+  .text {
+    padding-top: 4vw;
+  }
+  p {
+    font-size: 1vw;
+  }
+  h1 {
+    font-size: 2.5vw;
+  }
+  .main_text p {
+    font-size: 2vw;
+  }
+  .cards-container {
+    margin-bottom: 5vw;
+  }
+  .cards-container2 {
+    margin-bottom: 5vw;
+  }
 }
