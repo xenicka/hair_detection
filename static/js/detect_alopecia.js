@@ -30,3 +30,13 @@ document.getElementById("upload-button").onclick = function () {
   };
   reader.readAsDataURL(file); // Convert image to base64
 };
+function updateText(element) {
+  // Select the tooltip element within the hovered circle
+  const tooltip = element.querySelector(".tooltip");
+
+  // If a tooltip exists, update the target paragraph text with its content
+  if (tooltip) {
+    document.getElementById("what_we_do").textContent =
+      tooltip.textContent.trim();
+  }
+}

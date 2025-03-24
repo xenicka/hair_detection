@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hair type</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/alopecia.css') }}"
-    />
-  </head>
+{% extends "skelet.html" %}
 
-  <body>
+<!-- title -->
+{% block title %}Detect alopecia{% endblock %}
+<!-- css  -->
+{% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/alopecia.css') }}"
+/>
+{% endblock %}
+<!-- main text -->
+{% block content %}
+
+  <!-- <body>
     <h1>ALOPECIA TYPE</h1>
     <div id="upload-area">
       <input type="file" id="file-input" accept="image/*" />
@@ -24,5 +26,139 @@
     />
     <div id="result"></div>
     <script src="{{ url_for('static', filename='js/detect_alopecia.js') }}"></script>
-  </body>
-</html>
+  </body> -->
+
+<div class="container">
+  <div class="text">
+    <p>Alopecia Awareness
+    </p>
+    <h1>Alopecia: Detecting Early for Better Care
+    </h1>
+    <div class="main_text">
+      <p id="what_we_do">
+        Alopecia comes in different forms: Androgenetic, Areata, and Totalis. Recognizing the early signs of each type can help you take action and manage hair loss effectively.
+      </p>
+    </div>
+    <div class="broken-top-border">
+      <h1 class="title">Hair</h1>
+      <div class="features">
+        <div class="feature">
+          <div class="circle" id="andro"  onmouseover="updateText(this)">
+            <img
+              id="icon1"
+              src="{{ url_for('static', filename='images/andro.png') }}"
+              alt="ANDROGENETIC"
+            />
+            <div class="tooltip">
+              Androgenetic Alopecia results in gradual thinning along predictable patterns, but targeted treatments like minoxidil or lifestyle adjustments can slow progression and support hair health.
+            </div>
+          </div>
+          <p>ANDROGENETIC</p>
+        </div>
+
+        <div class="feature">
+          <div class="circle" onmouseover="updateText(this)">
+            <img
+              id="icon2"
+              src="{{ url_for('static', filename='images/areata.png') }}"
+              alt="WAVY"
+            />
+            <div class="tooltip">
+              Alopecia Areata causes round patches of hair loss, often appearing suddenly, but some treatments can help stimulate regrowth and manage the condition effectively.
+            </div>
+          </div>
+          <p>AREATA</p>
+        </div>
+
+        <div class="feature">
+          <div class="circle" onmouseover="updateText(this)">
+            <img
+              id="icon3"
+              src="{{ url_for('static', filename='images/totalis.png') }}"
+              alt="CURLY"
+            />
+            <div class="tooltip">
+              Alopecia Totalis leads to complete hair loss on the scalp, requiring specialized care, but wigs, scalp treatments, and supportive therapies can help individuals adapt with confidence.
+            </div>
+          </div>
+          <p>TOTALIS</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="button">
+    <input type="file" id="file-input" accept="image/*" style="display: none" />
+    <label for="file-input" id="upload-text">Choose a file</label>
+    <button id="upload-button">Upload</button>
+  </div>
+</div>
+<p>RELEVANCE</p>
+<h1>Wht do we really should “ care “ about haircare?</h1>
+<div class="cards-container">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-front">Scalp
+        Health</div>
+      <div class="card-back">
+        <k>Your scalp is the foundation of healthy hair. Proper care helps prevent dryness, excess oil, and issues like dandruff or irritation. A clean and balanced scalp promotes strong, shiny hair growth.</div>
+        </k>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <div class="card-front">Body Signals</div>
+      <div class="card-back">
+        <k>Changes in hair texture, thickness, or color can be a sign of underlying health issues. Regular haircare can help you notice these changes early and take action to prevent further damage.</k>
+       </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <div class="card-front">Early Detection</div>
+      <div class="card-back">
+        <k>Regular haircare can help you notice changes in your hair and scalp early, allowing you to address issues before they become more serious. Early detection can prevent hair loss, damage, and other issues.</k>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div class="cards-container2">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-front">Hair Defense</div>
+      <div class="card-back">
+        <k>Proper haircare can help protect your hair from damage caused by heat styling, chemical treatments, and environmental factors. Using the right products and techniques can keep your hair healthy and strong.</k>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <div class="card-front">Hygiene </div>
+      <div class="card-back">
+        <k>Regular haircare helps keep your hair and scalp clean and healthy, reducing the risk of issues like dandruff, itchiness, and infection. Proper hygiene is essential for overall health and well-being.</k>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <div class="card-front">Smart Haircare</div>
+      <div class="card-back">
+        <k>Understanding your hair type and its unique needs can help you choose the right products and techniques for healthy, beautiful hair. Smart haircare can save you time, money, and frustration in the long run.</k>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {% endblock %}
+
+  <!-- script -->
+  {% block script %}
+  <script src="{{ url_for('static', filename='js/detect_alopecia.js') }}"></script>
+  {% endblock %}
+</div>

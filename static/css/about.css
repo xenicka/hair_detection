@@ -151,7 +151,14 @@ h1 {
 
   font-size: 1.5vw;
   font-family: "Montserrat", sans-serif;
+
+  min-height: 2vw; /* Ensures space for at least one line */
 }
+
+#there_should_be_text.visible {
+  visibility: visible; /* Show text without shifting content */
+}
+
 .container_story {
   display: flex;
   align-items: center;

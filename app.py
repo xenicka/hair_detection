@@ -57,7 +57,9 @@ def home():
     return render_template('about.html',is_authenticated='user_id' in session)
 @app.route('/detect_alopecia')
 def home2():
-    return render_template('detect_alopecia.html')
+    if 'user_id' not in session:
+        return render_template('sign_in.html') # Redirect to sign-in if not authenticated
+    return render_template('detect_alopecia.html',is_authenticated=True)
 @app.route('/detect_hair')
 def home22():
     if 'user_id' not in session:
@@ -224,4 +226,4 @@ def upload_file(type,model,option):
 
 if __name__ == "__main__":
     threading.Timer(1, open_browser).start()  # Wait 1 second before opening
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False)  # Disable reloader to prevent multiple browser tabs opening
