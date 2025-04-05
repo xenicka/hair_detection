@@ -101,6 +101,8 @@ h1 {
 }
 #andro {
   background-color: #00253f;
+  margin: 0; /* Remove extra spacing */
+  padding: 0;
 }
 
 #icon1 {

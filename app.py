@@ -67,7 +67,10 @@ def home22():
     return render_template('detect_hair.html',is_authenticated=True)
 @app.route('/result_hair')
 def home3():
-    return render_template('result_hair.html')
+    if 'user_id' not in session:
+        return render_template('sign_in.html')
+    return render_template('result_hair.html', is_authenticated=True)
+
 @app.route('/result_alopecia')
 def home4():
     return render_template('result_alopecia.html')

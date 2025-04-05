@@ -3,3 +3,210 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.container {
+  position: relative; /* Make the container the reference point for absolute positioning */
+  display: block;
+  width: 100%;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensure no extra spacing around the image */
+}
+
+.text-overlay {
+  position: absolute; /* Position the text over the image */
+  top: 50%; /* Position text in the center vertically */
+  left: 50%; /* Position text in the center horizontally */
+  transform: translate(-50%, -50%); /* Offset the text to center it perfectly */
+  color: white;
+  font-size: 3vw; /* Adjust size as needed */
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+}
+#main {
+  display: flex;
+}
+.container_with_image {
+  width: 50%;
+  display: block;
+}
+.button_section {
+  display: block;
+  text-align: center;
+}
+.image_section {
+  display: flex;
+  justify-content: center;
+}
+#uploaded-image {
+  text-align: center;
+  padding: 1rem;
+  height: auto;
+  width: 23vw;
+}
+
+.text-container {
+  width: 90%;
+  display: none;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  text-align: center;
+  margin: 2vw 2vw 1vw 7vw;
+  border-radius: 1vw;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+}
+
+h1 {
+  font-size: 2vw;
+  text-align: center;
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+  padding-bottom: 0%;
+}
+.circle-container {
+  width: 30%;
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2vw;
+  margin: 4vw 1.7vw;
+}
+
+.circle {
+  width: 8vw;
+  height: 8vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0; /* Remove extra spacing */
+  background-color: #b0c4b7;
+}
+#icon1 {
+  width: 10%;
+}
+.circle:hover {
+  transform: scale(1.1); /* Увеличение при наведении */
+}
+
+.card {
+  display: flex;
+  padding: 2vw;
+  background-color: #d9d9d9;
+  border-radius: 1vw; /* Adjust for more or less rounding */
+}
+#info-text {
+  text-align: end;
+  padding: 0%;
+  margin: 0%;
+  margin-right: 1vw;
+  margin-left: 4vw;
+  margin-top: 1.8vw;
+  font-size: 1.3vw;
+}
+.rec {
+  justify-content: end;
+  align-items: end;
+  text-align: end;
+}
+
+/* Blur overlay */
+#blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent blur */
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Loading container */
+#loading-container {
+  text-align: center;
+  color: white;
+}
+
+/* Circular spinning loader */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  border-top: 6px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+/* Spinning animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text */
+#loading-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+#retry-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensures it is above the blur overlay */
+  display: none; /* Initially hidden */
+}
+#failed_detection {
+  position: absolute;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensures it is above the blur overlay */
+  display: none; /* Initially hidden */
+}
+#type {
+  margin-top: 1vw;
+}
+/* Define the heart animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh); /* Start from above the viewport */
+    opacity: 1; /* Fully visible at the start */
+  }
+  70% {
+    opacity: 1; /* Stay fully visible as they fall */
+  }
+  100% {
+    transform: translateY(100vh); /* Fall to the bottom of the viewport */
+    opacity: 0; /* Fade out gradually at the end */
+  }
+}
+
+/* Style for the heart */
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall 3s forwards ease-in; /* Animation duration: 3 seconds */
+  animation-timing-function: ease-in;
+  color: red;
+  pointer-events: none;
+}
