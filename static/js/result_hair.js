@@ -19,7 +19,7 @@ window.onload = function () {
     const predictionsData = JSON.parse(localStorage.getItem("predictionsData"));
 
     if (predictionsData && predictionsData.length > 0) {
-      const resultText = `Detected: ${predictionsData[0].class} - Confidence: ${predictionsData[0].confidence}`;
+      const resultText = `${predictionsData[0].class} - Confidence: ${predictionsData[0].confidence}`;
       resultDiv.innerText = resultText; // Display result
 
       if (predictionsData[0].class.toLowerCase().includes("curly")) {

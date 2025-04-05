@@ -13,7 +13,7 @@ body {
 .container img {
   width: 100%;
   height: auto;
-  display: block; /* Ensure no extra spacing around the image */
+  display: block;
 }
 
 .text-overlay {
@@ -29,9 +29,11 @@ body {
 }
 #main {
   display: flex;
+  margin-top: 3vw;
+  margin-bottom: 1vw;
 }
 .container_with_image {
-  width: 50%;
+  width: 30%;
   display: block;
 }
 .button_section {
@@ -41,12 +43,15 @@ body {
 .image_section {
   display: flex;
   justify-content: center;
+  margin-left: 4vw;
 }
 #uploaded-image {
   text-align: center;
-  padding: 1rem;
-  height: auto;
-  width: 23vw;
+  width: 20vw;
+  height: 30vw;
+  object-fit: contain;
+
+  /* Ensures the image fills the space without distortion */
 }
 
 .text-container {
@@ -57,17 +62,15 @@ body {
   justify-content: center; /* Center vertically */
   align-items: center; /* Center horizontally */
   text-align: center;
-  margin: 2vw 2vw 1vw 7vw;
   border-radius: 1vw;
-  padding-top: 2vw;
-  padding-bottom: 2vw;
+  padding-bottom: 1vw;
+  margin-left: 3vw;
 }
 
 h1 {
   font-size: 2vw;
   text-align: center;
-  margin-right: 1vw;
-  margin-bottom: 1vw;
+  margin-right: 0vw;
   padding-bottom: 0%;
 }
 .circle-container {
@@ -77,13 +80,12 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2vw;
   margin: 4vw 1.7vw;
 }
 
 .circle {
-  width: 8vw;
-  height: 8vw;
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -100,19 +102,21 @@ h1 {
 }
 
 .card {
-  display: flex;
-  padding: 2vw;
+  display: block;
   background-color: #d9d9d9;
-  border-radius: 1vw; /* Adjust for more or less rounding */
+  border-radius: 1vw;
+  margin: 0vw 3vw;
+  /* Adjust for more or less rounding */
 }
 #info-text {
-  text-align: end;
+  text-align: start;
   padding: 0%;
   margin: 0%;
-  margin-right: 1vw;
-  margin-left: 4vw;
+  margin-right: 3vw;
+  margin-left: 1vw;
   margin-top: 1.8vw;
-  font-size: 1.3vw;
+  font-size: 1.5vw;
+  margin-bottom: 2vw;
 }
 .rec {
   justify-content: end;
@@ -185,6 +189,9 @@ h1 {
 }
 #type {
   margin-top: 1vw;
+  font-size: 1.2vw;
+  align-items: center;
+  text-align: center;
 }
 /* Define the heart animation */
 @keyframes fall {
@@ -209,4 +216,171 @@ h1 {
   animation-timing-function: ease-in;
   color: red;
   pointer-events: none;
+}
+.con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Make the container the reference point for absolute positioning */
+}
+#result {
+  font-size: 2.3vw;
+}
+.try {
+  padding-top: 0%;
+  margin-top: 0%;
+  font-size: 2vw;
+  background-color: #9cd6c4;
+  width: 10vw;
+  height: 4vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.6vw;
+  cursor: pointer;
+  border: none;
+  border-radius: 11px;
+  color: #00253f;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+/* Hover effect */
+.try:hover {
+  background-color: #7fcfb1; /* Slightly darker green */
+  transform: scale(1.05); /* Slightly enlarges button */
+}
+.container_with_button {
+  display: flex;
+  width: 20vw;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4vw;
+  margin-top: 0.6vw;
+}
+.container_with_anquete {
+  background-color: #7a8f84;
+  display: flex;
+  margin-top: 0.6vw;
+}
+.shampoo {
+  width: 30%;
+}
+.text_data {
+  width: 70%;
+  color: white;
+}
+#shampoo-image {
+  width: 100%;
+  height: auto;
+}
+#plan {
+  font-size: 3vw;
+}
+.fade-in-text {
+  text-align: center;
+}
+.fade-in-text p {
+  opacity: 0;
+  font-size: 1.5vw;
+  margin-top: 1vw;
+  transform: translateY(10px); /* Slight slide-up effect */
+  animation: fadeInUp 1s ease-in forwards;
+}
+
+.fade-in-text p:nth-child(1) {
+  animation-delay: 2.5s;
+}
+.fade-in-text p:nth-child(2) {
+  animation-delay: 3.5s;
+}
+.fade-in-text p:nth-child(3) {
+  animation-delay: 4.5s;
+}
+.fade-in-text p:nth-child(4) {
+  animation-delay: 5.5s;
+}
+.fade-in-text p:nth-child(5) {
+  animation-delay: 6.5s;
+}
+.fade-in-text p:nth-child(5) {
+  animation-delay: 6.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#create_button {
+  opacity: 0;
+  color: white;
+  margin-top: 2vw;
+  transform: translateY(10px); /* Slight slide-up effect */
+  animation: fadeInUp 1s ease-in forwards;
+  animation-delay: 7.5s; /* Appears after the last text */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+#create_button:hover {
+  background-color: #7fcfb1; /* Slightly darker green */
+  transform: scale(
+    1.2
+  ); /* Slightly enlarges button (changed scale to 1.2 for a more noticeable effect) */
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+}
+.cardd {
+  width: 30vw;
+  height: 50vw;
+  margin: 2vw;
+  background-color: #d9d9d9;
+  padding: 1vw;
+}
+.cardd:hover {
+  transform: scale(1.05); /* Slightly enlarges card on hover */
+  transition: transform 0.6s ease; /* Smooth transition for the scaling effect */
+}
+#on {
+  align-items: start;
+  text-align: center;
+  margin-bottom: 1vw;
+}
+.content_in_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.kruh {
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0; /* Remove extra spacing */
+  background-color: #b0c4b7;
+  margin-top: 1vw;
+}
+#tcard {
+  font-size: 1.7vw;
+  margin-right: 1vw;
+}
+.tcard {
+  font-size: 1.7vw;
+  background-color: #b0c4b7;
+  margin-right: 0vw;
+  border-radius: 1vw;
+  padding: 0.5vw;
+}
+#icon2 {
+  width: 20%;
 }

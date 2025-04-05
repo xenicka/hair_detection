@@ -31,7 +31,7 @@ Session(app)
 
 db = SQLAlchemy(app)
 alopecia_types = ['Alopecia_Areata', 'Alopecia_Totalis','Androgenetic_Alopecia']
-hair_types = ['long Curly Hair', 'long Straight Hair', 'long Wavy Hair', ' short curly hair', 'short straight hair', 'short wavy hair', 'bald']
+hair_types = ['Long Curly Hair', 'Long Straight Hair', 'Long Wavy Hair', ' Short Curly Hair', 'Short Straight Hair', 'Short Wavy Hair', 'Bald']
 
 model_for_type = YOLO('best.pt')  
 model_for_alopecia = YOLO('best2.pt')  
@@ -134,6 +134,11 @@ def register():
     # Return success response
     return jsonify({'success': True, 'message': 'Registration successful!'}), 201
 
+@app.route('/create_plan')
+def plan():
+    if 'user_id' not in session:
+        return render_template('sign_in.html') # Redirect to sign-in if not authenticated
+    return render_template('create_plan.html', is_authenticated=True)
 @app.route('/sign_in', methods=['POST'])
 def sign_in():
     data = request.get_json()
