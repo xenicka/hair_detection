@@ -76,7 +76,9 @@ def home3():
 def home4():
     if 'user_id' not in session:
         return render_template('sign_in.html')
-    return render_template('result_alopecia.html', is_authenticated=True)
+    return render_template('result_alopecia.html', is_authenticated=True,andro_url=url_for('static', filename='images/andro.png'),
+                           areata_url=url_for('static', filename='images/areata.png'),
+                           totalis_url=url_for('static', filename='images/totalis.png'))
 @app.route('/register')
 def home5():
     return render_template('register.html')

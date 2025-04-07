@@ -7,6 +7,12 @@ window.onload = function () {
   const retryButton = document.getElementById("retry-button");
   const loading_contaienr = document.getElementById("loading-container");
   const failed = document.getElementById("failed_detection");
+  const hairTypeImage = document.getElementById("hair-type-image");
+  const imagePaths = document.getElementById("image-paths");
+  const areata = imagePaths.dataset.areata;
+  const totalis = imagePaths.dataset.totalis;
+  const andro = imagePaths.dataset.andro;
+  const circle = document.querySelector(".circle"); // Select the single circle
 
   // Display uploaded image if available
   if (uploadedImage) {
@@ -24,18 +30,33 @@ window.onload = function () {
 
       if (predictionsData[0].class.toLowerCase().includes("areata")) {
         infoText.innerText =
-          "Curly hair has distinct, well-defined curls that can range from loose, bouncy curls to tighter, more compact ringlets. This type of hair is characterized by its volume, natural bounce, and texture. Curly hair tends to have a lot of body and can create big, bold looks, but it also requires more moisture and care. The natural oils produced by the scalp have a harder time traveling down the twists and turns of the hair, so curly hair can often feel drier than other types. Because of its texture, curly hair can be more difficult to manage and may require extra care to maintain its shape and prevent frizz. However, with the right products and techniques, curly hair can be stunning and full of life.";
-        type.innerText = "areata";
+          "Alopecia areata is an autoimmune disorder that causes sudden, round patches of hair loss on the scalp or other parts of the body. The body’s immune system mistakenly attacks hair follicles, leading to hair shedding in small, circular patches. This type of alopecia can occur at any age, though it often starts in childhood or adolescence. In some cases, the hair may regrow naturally, while in others, the condition can be chronic or recurrent. Though the exact cause is unclear, it is thought to involve genetic and environmental factors. Alopecia areata can affect hair growth in other areas as well, such as eyebrows and eyelashes. While there is no permanent cure, treatments like corticosteroids or immunotherapy can help manage the symptoms.";
+        type.innerText = "AREATA";
+        hairTypeImage.src = areata;
+        hairTypeImage.style.display = "block";
+        hairTypeImage.style.width = "80%";
+        circle.style.backgroundColor = "#D9D9D9"; // Adjust width as needed
       } else if (predictionsData[0].class.toLowerCase().includes("totalis")) {
         infoText.innerText =
-          "Wavy hair is a versatile hair type that falls between straight and curly, with soft, flowing waves that create natural volume. The waves can vary in size, from loose beachy waves to more defined, larger curls. Wavy hair tends to have more texture and body than straight hair, making it ideal for creating more voluminous hairstyles. However, it can also be more prone to frizz, especially in humid conditions. People with wavy hair often find that it can be a bit tricky to style, as the waves may fall flat or become overly frizzy if not managed properly. Overall, wavy hair is the perfect balance between straight and curly, offering a bit of both.";
-        type.innerText = "totalis";
+          "Alopecia totalis is an advanced form of alopecia areata, where there is total loss of hair on the scalp. It is a severe, rare condition that results in complete baldness of the scalp, and in some cases, it may progress to alopecia universalis, where all body hair is lost. The exact cause is unknown, but it is believed to be linked to an autoimmune response where the immune system attacks the hair follicles, preventing new hair from growing. This form of alopecia can develop suddenly and may be emotionally challenging, though some individuals experience regrowth, while others may not. Treatments are similar to those for alopecia areata but often involve stronger or more intensive therapies.";
+        type.innerText = "TOTALIS";
+        hairTypeImage.src = totalis;
+        hairTypeImage.style.display = "block";
+        hairTypeImage.style.width = "50%";
+        circle.style.backgroundColor = "#D9D9D9"; // Adjust width as needed
+        // Adjust width as needed
       } else if (
         predictionsData[0].class.toLowerCase().includes("androgenetic")
       ) {
         infoText.innerText =
-          "Straight hair is smooth and naturally sleek, without any curves or curls. It lays flat against the scalp and tends to reflect light, giving it a shiny appearance. This type of hair is typically more resilient to humidity and environmental changes, which helps it retain its sleek look. However, straight hair can sometimes appear greasy or limp more quickly than other hair types since the natural oils from the scalp are able to travel more easily down the length of the hair. Although it's generally easy to manage, straight hair can be prone to looking flat or lacking volume, especially if it's fine or thin.";
-        type.innerText = "androgenetic";
+          "This type of hair loss is commonly known as pattern baldness. It typically manifests in a receding hairline or thinning of the hair on the crown, often following a predictable pattern. Androgenetic alopecia can affect both men and women, but it is more pronounced in men. It occurs due to genetic factors and the influence of hormones, particularly androgens. In men, it usually starts with a receding hairline and progresses to baldness on the top of the scalp. In women, it often results in diffuse thinning, especially at the crown. This type of alopecia tends to occur gradually, and though it can’t be reversed, treatments like minoxidil and hair transplants can help slow its progression and restore some hair volume.";
+
+        type.innerText = "ANDRO";
+        hairTypeImage.src = andro;
+        hairTypeImage.style.display = "block";
+        hairTypeImage.style.width = "40%";
+        circle.style.backgroundColor = "#00253F"; // Adjust width as needed
+        // Adjust width as needed
       } else {
         type.innerText = "NOT DETECTED";
         localStorage.setItem(

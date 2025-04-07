@@ -12,11 +12,6 @@ window.onload = function () {
   const curlyImageUrl = imagePaths.dataset.curly;
   const wavyImageUrl = imagePaths.dataset.wavy;
   const straightImageUrl = imagePaths.dataset.straight;
-  try {
-    console.log("Straight image URL:", straightImageUrl);
-  } catch (error) {
-    console.error("straightImageUrl is not defined:", error);
-  }
 
   // Display uploaded image if available
   if (uploadedImage) {

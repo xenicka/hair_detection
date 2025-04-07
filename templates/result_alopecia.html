@@ -7,7 +7,7 @@
 {% block css %}
 <link
   rel="stylesheet"
-  href="{{ url_for('static', filename='css/result_hair.css') }}"
+  href="{{ url_for('static', filename='css/result_alopecia.css') }}"
 />
 {% endblock %}
 
@@ -45,7 +45,7 @@
       />
     </div>
     <div class="container_with_button">
-      <button class="try" onclick="window.location.href='/detect_hair';">
+      <button class="try" onclick="window.location.href='/detect_alopecia';">
         Try again
       </button>
     </div>
@@ -59,9 +59,10 @@
           <div class="feature">
             <div class="circle" onmouseover="updateText(this)">
               <img
-                id="icon1"
-                src="{{ url_for('static', filename='images/straight.png') }}"
-                alt="STRAIGHT"
+                id="hair-type-image"
+                src=""
+                alt="Hair Type"
+                style="display: none"
               />
             </div>
             <p id="type"></p>
@@ -110,88 +111,155 @@
   <h1>Exploring Hair Diversity</h1>
   <div class="cards">
     <div class="cardd" id="first">
-      <h1 id="on">STRAIGHT</h1>
+      <h1 id="on">AREATA</h1>
       <div class="content_in_card">
         <div class="about_hair_info">
           <p id="tcard">
-            Straight hair is smooth and easy to comb. It tends to get oily at
-            the roots.
+            Alopecia areata leads to sudden, round patches of hair loss caused
+            by the immune system mistakenly attacking hair follicles.
           </p>
         </div>
-        <div class="circle_container">
-          <div class="kruh">
+        <div class="circle_container-1">
+          <div id="f" class="kruh">
             <img
               id="icon1"
-              src="{{ url_for('static', filename='images/straight.png') }}"
+              src="{{ url_for('static', filename='images/areata.png') }}"
               alt="STRAIGHT"
             />
           </div>
-          <p id="type">STRAIGHT</p>
+          <p id="type">AREATA</p>
         </div>
       </div>
       <h1 id="on">Care Recommendations:</h1>
-      <p class="tcard">● Light shampoos for daily use</p>
-      <p class="tcard">● Volume-boosting conditioners</p>
-      <p class="tcard">● Avoid heavy oils and creams</p>
-      <p class="tcard">● Dry shampoos to refresh the hairstyle</p>
-      <p class="tcard">● Use a heat protectant before styling</p>
-      <p class="tcard">● Regular trims to maintain healthy ends</p>
+      <p class="tcard">
+        ● Consult a dermatologist to explore treatment options such as
+        corticosteroid injections or topical treatments
+      </p>
+      <p class="tcard">
+        ● Consider using minoxidil (Rogaine) as recommended by a doctor to
+        promote hair regrowth
+      </p>
+      <p class="tcard">
+        ● Take Vitamin D, biotin, and zinc supplements to support hair health
+        and immune function
+      </p>
+      <p class="tcard">
+        ● Consider immunotherapy (diphencyprone) under medical supervision to
+        help stimulate hair regrowth
+      </p>
+      <p class="tcard">
+        ● Manage stress through techniques like meditation or yoga, as stress
+        can trigger or worsen hair loss
+      </p>
+      <p class="tcard">
+        ● Protect the scalp from harsh weather conditions by wearing a hat or
+        applying sunscreen
+      </p>
+      <p class="tcard">
+        ● Regular check-ups with a healthcare provider to monitor progress and
+        adjust treatments
+      </p>
     </div>
     <div class="cardd" id="third">
-      <h1 id="on">CURLY</h1>
+      <h1 id="on">ANDRO</h1>
       <div class="content_in_card">
         <div class="about_hair_info">
           <p id="tcard">
-            Curly hair is thick and full of volume. It requires moisture and can
-            be harder to manage.
+            Androgenetic alopecia causes gradual hair thinning, typically
+            starting at the temples and crown, due to genetic and hormonal
+            factors.
           </p>
         </div>
         <div class="circle_container">
-          <div class="kruh">
+          <div id="s" class="kruh">
             <img
               id="icon2"
-              src="{{ url_for('static', filename='images/curly.png') }}"
+              src="{{ url_for('static', filename='images/andro.png') }}"
               alt="STRAIGHT"
             />
           </div>
-          <p id="type">CURLY</p>
+          <p id="type">ANDRO</p>
         </div>
       </div>
       <h1 id="on">Care Recommendations:</h1>
-      <p class="tcard">● Sulfate-free shampoos</p>
-      <p class="tcard">● Rich, hydrating conditioners</p>
-      <p class="tcard">● Leave-in conditioners or curl creams</p>
-      <p class="tcard">● Avoid heat styling to prevent damage</p>
-      <p class="tcard">● Finger-coil curls to define shape</p>
-      <p class="tcard">● Apply product to damp hair</p>
+      <p class="tcard">
+        ● Use minoxidil (Rogaine) or finasteride (Propecia) to help slow the
+        progression of hair thinning
+      </p>
+      <p class="tcard">
+        ● Consider low-level laser therapy (LLLT) to stimulate hair follicles
+        and encourage hair growth
+      </p>
+      <p class="tcard">
+        ● Incorporate hair-healthy vitamins like biotin, zinc, and Vitamin D
+        into your diet
+      </p>
+      <p class="tcard">
+        ● Avoid tight hairstyles and minimize the use of heated styling tools to
+        prevent further hair damage
+      </p>
+      <p class="tcard">
+        ● Explore hair transplant surgery if other treatments are not effective
+        for significant hair loss
+      </p>
+      <p class="tcard">
+        ● Consider platelet-rich plasma (PRP) therapy, which can help promote
+        hair regrowth
+      </p>
+      <p class="tcard">
+        ● Regular scalp massages to improve blood circulation and support
+        follicle health
+      </p>
     </div>
     <div class="cardd" id="second">
-      <h1 id="on">WAVY</h1>
+      <h1 id="on">TOTALIS</h1>
       <div class="content_in_card">
         <div class="about_hair_info">
           <p id="tcard">
-            Wavy hair has a natural texture with soft waves. It can be prone to
-            frizz and tangles.
+            Alopecia totalis is a severe form of alopecia areata that results in
+            complete hair loss on the scalp.
           </p>
         </div>
         <div class="circle_container">
-          <div class="kruh">
+          <div id="t" class="kruh">
             <img
               id="icon1"
-              src="{{ url_for('static', filename='images/wavy.png') }}"
+              src="{{ url_for('static', filename='images/totalis.png') }}"
               alt="STRAIGHT"
             />
           </div>
-          <p id="type">WAVY</p>
+          <p id="type">TOTALIS</p>
         </div>
       </div>
       <h1 id="on">Care Recommendations:</h1>
-      <p class="tcard">● Moisturizing shampoos</p>
-      <p class="tcard">● Lightweight conditioners</p>
-      <p class="tcard">● Avoid heavy products</p>
-      <p class="tcard">● Sea salt sprays</p>
-      <p class="tcard">● Diffuse hair when blow-drying</p>
-      <p class="tcard">● Deep condition occasionally</p>
+      <p class="tcard">
+        ● Seek professional advice on advanced treatments such as oral
+        corticosteroids or immunosuppressants
+      </p>
+      <p class="tcard">
+        ● Explore phototherapy (light therapy) as a treatment option under a
+        dermatologist’s supervision
+      </p>
+      <p class="tcard">
+        ● Consider scalp micropigmentation to create the appearance of hair
+        follicles if desired
+      </p>
+      <p class="tcard">
+        ● Focus on scalp health with gentle, non-irritating shampoos and
+        moisturizers
+      </p>
+      <p class="tcard">
+        ● Look into wigs or prosthetic hairpieces to restore confidence and
+        protection for the scalp
+      </p>
+      <p class="tcard">
+        ● Support overall wellness with a balanced diet and hair-supporting
+        vitamins like biotin and Vitamin D
+      </p>
+      <p class="tcard">
+        ● Stay in regular contact with your healthcare provider to adjust
+        treatment plans as needed
+      </p>
     </div>
   </div>
 </div>
@@ -199,5 +267,11 @@
 
 <!-- script -->
 {% block script %}
+<div
+  id="image-paths"
+  data-andro="{{ andro_url }}"
+  data-areata="{{ areata_url }}"
+  data-totalis="{{ totalis_url }}"
+></div>
 <script src="{{ url_for('static', filename='js/result_alopecia.js') }}"></script>
 {% endblock %}

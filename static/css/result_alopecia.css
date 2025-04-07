@@ -1,0 +1,404 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative; /* Make the container the reference point for absolute positioning */
+  display: block;
+  width: 100%;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-overlay {
+  position: absolute; /* Position the text over the image */
+  top: 50%; /* Position text in the center vertically */
+  left: 50%; /* Position text in the center horizontally */
+  transform: translate(-50%, -50%); /* Offset the text to center it perfectly */
+  color: white;
+  font-size: 3vw; /* Adjust size as needed */
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+}
+#main {
+  display: flex;
+  margin-top: 3vw;
+  margin-bottom: 1vw;
+}
+.container_with_image {
+  width: 30%;
+  display: block;
+}
+.button_section {
+  display: block;
+  text-align: center;
+}
+.image_section {
+  display: flex;
+  justify-content: center;
+  margin-left: 4vw;
+}
+#uploaded-image {
+  text-align: center;
+  width: 20vw;
+  height: 20vw;
+  object-fit: contain;
+
+  /* Ensures the image fills the space without distortion */
+}
+
+.text-container {
+  width: 90%;
+  display: none;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  text-align: center;
+  border-radius: 1vw;
+  padding-bottom: 1vw;
+  margin-left: 3vw;
+}
+
+h1 {
+  font-size: 2vw;
+  text-align: center;
+  margin-right: 0vw;
+  padding-bottom: 0%;
+}
+.circle-container {
+  width: 30%;
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4vw 1.7vw;
+}
+
+.circle {
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0; /* Remove extra spacing */
+  background-color: #d9d9d9;
+}
+#icon1 {
+  width: 10%;
+}
+
+.circle:hover {
+  transform: scale(1.1); /* Увеличение при наведении */
+}
+
+.card {
+  display: block;
+  background-color: #999091;
+  border-radius: 1vw;
+  margin: 0vw 3vw;
+  color: white;
+  /* Adjust for more or less rounding */
+}
+#info-text {
+  text-align: start;
+  padding: 0%;
+  margin: 0%;
+  margin-right: 3vw;
+  margin-left: 1vw;
+  margin-top: 1.8vw;
+  font-size: 1.5vw;
+  margin-bottom: 2vw;
+}
+.rec {
+  justify-content: end;
+  align-items: end;
+  text-align: end;
+}
+
+/* Blur overlay */
+#blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent blur */
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Loading container */
+#loading-container {
+  text-align: center;
+  color: white;
+}
+
+/* Circular spinning loader */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  border-top: 6px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+/* Spinning animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text */
+#loading-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+#retry-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensures it is above the blur overlay */
+  display: none; /* Initially hidden */
+}
+#failed_detection {
+  position: absolute;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensures it is above the blur overlay */
+  display: none; /* Initially hidden */
+}
+#type {
+  margin-top: 1vw;
+  font-size: 1.6vw;
+  align-items: center;
+  color: #d9d9d9;
+  text-align: center;
+}
+/* Define the heart animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh); /* Start from above the viewport */
+    opacity: 1; /* Fully visible at the start */
+  }
+  70% {
+    opacity: 1; /* Stay fully visible as they fall */
+  }
+  100% {
+    transform: translateY(100vh); /* Fall to the bottom of the viewport */
+    opacity: 0; /* Fade out gradually at the end */
+  }
+}
+
+/* Style for the heart */
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall 3s forwards ease-in; /* Animation duration: 3 seconds */
+  animation-timing-function: ease-in;
+  color: red;
+  pointer-events: none;
+}
+.con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Make the container the reference point for absolute positioning */
+}
+#result {
+  font-size: 2.3vw;
+}
+.try {
+  padding-top: 0%;
+  margin-top: 0%;
+  font-size: 2vw;
+  background-color: #999091;
+  width: 10vw;
+  height: 4vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.6vw;
+  cursor: pointer;
+  border: none;
+  border-radius: 11px;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+/* Hover effect */
+.try:hover {
+  background-color: #666161; /* Slightly darker green */
+  transform: scale(1.05); /* Slightly enlarges button */
+}
+.container_with_button {
+  display: flex;
+  width: 20vw;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4vw;
+  margin-top: 0.6vw;
+}
+.container_with_anquete {
+  background-color: #999091;
+  display: flex;
+  margin-top: 0.6vw;
+}
+.shampoo {
+  width: 30%;
+}
+.text_data {
+  width: 70%;
+  color: white;
+}
+#shampoo-image {
+  width: 100%;
+  height: auto;
+}
+#plan {
+  font-size: 3vw;
+}
+.fade-in-text {
+  text-align: center;
+}
+.fade-in-text p {
+  opacity: 0;
+  font-size: 1.5vw;
+  margin-top: 1vw;
+  transform: translateY(10px); /* Slight slide-up effect */
+  animation: fadeInUp 1s ease-in forwards;
+}
+
+.fade-in-text p:nth-child(1) {
+  animation-delay: 2.5s;
+}
+.fade-in-text p:nth-child(2) {
+  animation-delay: 3.5s;
+}
+.fade-in-text p:nth-child(3) {
+  animation-delay: 4.5s;
+}
+.fade-in-text p:nth-child(4) {
+  animation-delay: 5.5s;
+}
+.fade-in-text p:nth-child(5) {
+  animation-delay: 6.5s;
+}
+.fade-in-text p:nth-child(5) {
+  animation-delay: 6.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#create_button {
+  opacity: 0;
+  color: white;
+  margin-top: 2vw;
+  transform: translateY(10px); /* Slight slide-up effect */
+  animation: fadeInUp 1s ease-in forwards;
+  background-color: #d9d9d9;
+  animation-delay: 7.5s; /* Appears after the last text */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+#create_button:hover {
+  background-color: #c5c4c4; /* Slightly darker green */
+  transform: scale(
+    1.2
+  ); /* Slightly enlarges button (changed scale to 1.2 for a more noticeable effect) */
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+}
+.cardd {
+  width: 30vw;
+  height: 80vw;
+  margin: 2vw;
+  background-color: #999091;
+  padding: 1vw;
+}
+.cardd:hover {
+  transform: scale(1.05); /* Slightly enlarges card on hover */
+  transition: transform 0.6s ease; /* Smooth transition for the scaling effect */
+}
+#on {
+  align-items: start;
+  text-align: center;
+  color: #d9d9d9;
+  margin-bottom: 1vw;
+}
+.content_in_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d9d9d9;
+}
+.kruh {
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0; /* Remove extra spacing */
+  background-color: #d9d9d9;
+  margin-top: 1vw;
+}
+#f img {
+  width: 70%;
+}
+#s img {
+  width: 40%;
+}
+#s {
+  background-color: #00253f;
+}
+#t img {
+  width: 40%;
+}
+#tcard {
+  font-size: 1.7vw;
+  margin-right: 1vw;
+}
+.tcard {
+  font-size: 1.7vw;
+  background-color: #d9d9d9;
+  margin-right: 0vw;
+  border-radius: 1vw;
+  padding: 0.5vw;
+}
+#icon2 {
+  width: 20%;
+}
