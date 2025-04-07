@@ -252,14 +252,14 @@ k {
 .broken-top-border::before {
   left: 0;
   width: 40%;
-  height: 0.2vw; /* Толщина линии */
+  height: 0.1vw; /* Толщина линии */
 }
 
 /* Правая часть верхней границы */
 .broken-top-border::after {
   right: 0;
   width: 40%;
-  height: 0.2vw; /* Толщина линии */
+  height: 0.1vw; /* Толщина линии */
 }
 .broken-top-border .title {
   position: absolute;
