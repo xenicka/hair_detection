@@ -1,19 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alopecia</title>
-  </head>
-  <body>
-    <img
-      id="uploaded-image"
-      src=""
-      alt="Uploaded Image"
-      style="display: none"
-    />
-    <div id="result"></div>
+{% extends "skelet.html" %}
 
-    <script src="{{ url_for('static', filename='js/result_alopecia.js') }}"></script>
-  </body>
-</html>
+<!-- title -->
+{% block title %}Result hair{% endblock %}
+
+<!-- css  -->
+{% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/result_hair.css') }}"
+/>
+{% endblock %}
+
+<!-- main text -->
+{% block content %}
+<div id="blur-overlay">
+  <div id="loading-container">
+    <div class="spinner"></div>
+    <p id="loading-text">Processing...</p>
+  </div>
+</div>
+<p id="failed_detection">The detection failed,try again!</p>
+<button id="retry-button" style="display: none" onclick="retry()">
+  Try Again
+</button>
+
+<div class="container">
+  <img
+    class="fade-in"
+    src="{{ url_for('static', filename='images/result_alopecia.png') }}"
+    alt="My Image"
+  />
+  <div class="text-overlay">
+    Every Step Counts – Hope, Healing, and Self-Love
+  </div>
+</div>
+<div class="container" id="main">
+  <div class="container_with_image">
+    <div class="image_section">
+      <img
+        id="uploaded-image"
+        src=""
+        alt="Uploaded Image"
+        style="display: none"
+      />
+    </div>
+    <div class="container_with_button">
+      <button class="try" onclick="window.location.href='/detect_hair';">
+        Try again
+      </button>
+    </div>
+  </div>
+  <div class="text-container">
+    <div class="card">
+      <h1>Your analysis is here</h1>
+      <div id="result"></div>
+      <div class="con">
+        <div class="circle-container">
+          <div class="feature">
+            <div class="circle" onmouseover="updateText(this)">
+              <img
+                id="icon1"
+                src="{{ url_for('static', filename='images/straight.png') }}"
+                alt="STRAIGHT"
+              />
+            </div>
+            <p id="type"></p>
+          </div>
+        </div>
+        <div class="rec">
+          <p id="info-text">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatibus impedit, tempore eum dolor suscipit eos odio
+            recusandae, harum sequi a, quae minima? Pariatur eaque asperiores
+            eius voluptas optio laboriosam fugit!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container_with_anquete">
+  <div class="shampoo">
+    <img
+      id="shampoo-image"
+      src="{{ url_for('static', filename='images/shampoo.png') }}"
+      alt="Empowerment"
+      class="empowerment-image"
+    />
+  </div>
+  <div class="text_data">
+    <h1 id="plan">Create your own personal plan!</h1>
+    <div class="fade-in-text">
+      <p>● Get a customized washing schedule that fits your hair’s</p>
+      <p>● Follow a proven step-by-step routine for your exact hair type</p>
+      <p>● Discover the perfect hair care products</p>
+      <p>● Achieve the hair of your dreams</p>
+      <p>● Stay on track with Google Calendar reminders</p>
+      <button
+        class="try"
+        id="create_button"
+        onclick="window.location.href='/create_plan';"
+      >
+        Create
+      </button>
+    </div>
+  </div>
+</div>
+<div class="container_with_cards">
+  <h1>Exploring Hair Diversity</h1>
+  <div class="cards">
+    <div class="cardd" id="first">
+      <h1 id="on">STRAIGHT</h1>
+      <div class="content_in_card">
+        <div class="about_hair_info">
+          <p id="tcard">
+            Straight hair is smooth and easy to comb. It tends to get oily at
+            the roots.
+          </p>
+        </div>
+        <div class="circle_container">
+          <div class="kruh">
+            <img
+              id="icon1"
+              src="{{ url_for('static', filename='images/straight.png') }}"
+              alt="STRAIGHT"
+            />
+          </div>
+          <p id="type">STRAIGHT</p>
+        </div>
+      </div>
+      <h1 id="on">Care Recommendations:</h1>
+      <p class="tcard">● Light shampoos for daily use</p>
+      <p class="tcard">● Volume-boosting conditioners</p>
+      <p class="tcard">● Avoid heavy oils and creams</p>
+      <p class="tcard">● Dry shampoos to refresh the hairstyle</p>
+      <p class="tcard">● Use a heat protectant before styling</p>
+      <p class="tcard">● Regular trims to maintain healthy ends</p>
+    </div>
+    <div class="cardd" id="third">
+      <h1 id="on">CURLY</h1>
+      <div class="content_in_card">
+        <div class="about_hair_info">
+          <p id="tcard">
+            Curly hair is thick and full of volume. It requires moisture and can
+            be harder to manage.
+          </p>
+        </div>
+        <div class="circle_container">
+          <div class="kruh">
+            <img
+              id="icon2"
+              src="{{ url_for('static', filename='images/curly.png') }}"
+              alt="STRAIGHT"
+            />
+          </div>
+          <p id="type">CURLY</p>
+        </div>
+      </div>
+      <h1 id="on">Care Recommendations:</h1>
+      <p class="tcard">● Sulfate-free shampoos</p>
+      <p class="tcard">● Rich, hydrating conditioners</p>
+      <p class="tcard">● Leave-in conditioners or curl creams</p>
+      <p class="tcard">● Avoid heat styling to prevent damage</p>
+      <p class="tcard">● Finger-coil curls to define shape</p>
+      <p class="tcard">● Apply product to damp hair</p>
+    </div>
+    <div class="cardd" id="second">
+      <h1 id="on">WAVY</h1>
+      <div class="content_in_card">
+        <div class="about_hair_info">
+          <p id="tcard">
+            Wavy hair has a natural texture with soft waves. It can be prone to
+            frizz and tangles.
+          </p>
+        </div>
+        <div class="circle_container">
+          <div class="kruh">
+            <img
+              id="icon1"
+              src="{{ url_for('static', filename='images/wavy.png') }}"
+              alt="STRAIGHT"
+            />
+          </div>
+          <p id="type">WAVY</p>
+        </div>
+      </div>
+      <h1 id="on">Care Recommendations:</h1>
+      <p class="tcard">● Moisturizing shampoos</p>
+      <p class="tcard">● Lightweight conditioners</p>
+      <p class="tcard">● Avoid heavy products</p>
+      <p class="tcard">● Sea salt sprays</p>
+      <p class="tcard">● Diffuse hair when blow-drying</p>
+      <p class="tcard">● Deep condition occasionally</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- script -->
+{% block script %}
+<script src="{{ url_for('static', filename='js/result_alopecia.js') }}"></script>
+{% endblock %}

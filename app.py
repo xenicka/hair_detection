@@ -2,7 +2,7 @@
 import webbrowser
 import threading
 
-from flask import Flask, request, jsonify, render_template,session
+from flask import Flask, request, jsonify, render_template,session, url_for
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -30,7 +30,7 @@ Session(app)
 
 
 db = SQLAlchemy(app)
-alopecia_types = ['Alopecia_Areata', 'Alopecia_Totalis','Androgenetic_Alopecia']
+alopecia_types = ['Alopecia Areata', 'Alopecia Totalis','Androgenetic Alopecia']
 hair_types = ['Long Curly Hair', 'Long Straight Hair', 'Long Wavy Hair', ' Short Curly Hair', 'Short Straight Hair', 'Short Wavy Hair', 'Bald']
 
 model_for_type = YOLO('best.pt')  
@@ -64,16 +64,19 @@ def home2():
 def home22():
     if 'user_id' not in session:
         return render_template('sign_in.html') # Redirect to sign-in if not authenticated
-    return render_template('detect_hair.html',is_authenticated=True)
+    return render_template('detect_hair.html',is_authenticated=True,)
 @app.route('/result_hair')
 def home3():
     if 'user_id' not in session:
         return render_template('sign_in.html')
-    return render_template('result_hair.html', is_authenticated=True)
-
+    return render_template('result_hair.html', is_authenticated=True, curly_url=url_for('static', filename='images/curly.png'),
+                           wavy_url=url_for('static', filename='images/wavy.png'),
+                           straight_url=url_for('static', filename='images/straight.png'))
 @app.route('/result_alopecia')
 def home4():
-    return render_template('result_alopecia.html')
+    if 'user_id' not in session:
+        return render_template('sign_in.html')
+    return render_template('result_alopecia.html', is_authenticated=True)
 @app.route('/register')
 def home5():
     return render_template('register.html')

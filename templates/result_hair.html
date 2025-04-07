@@ -57,9 +57,10 @@
           <div class="feature">
             <div class="circle" onmouseover="updateText(this)">
               <img
-                id="icon1"
-                src="{{ url_for('static', filename='images/straight.png') }}"
-                alt="STRAIGHT"
+                id="hair-type-image"
+                src=""
+                alt="Hair Type"
+                style="display: none"
               />
             </div>
             <p id="type"></p>
@@ -197,5 +198,12 @@
 
 <!-- script -->
 {% block script %}
+<div
+  id="image-paths"
+  data-curly="{{ curly_url }}"
+  data-wavy="{{ wavy_url }}"
+  data-straight="{{ straight_url }}"
+></div>
+
 <script src="{{ url_for('static', filename='js/result_hair.js') }}"></script>
 {% endblock %}
