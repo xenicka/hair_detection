@@ -25,10 +25,10 @@ window.onload = function () {
     const predictionsData = JSON.parse(localStorage.getItem("predictionsData"));
 
     if (predictionsData && predictionsData.length > 0) {
-      const resultText = `${predictionsData[0].class} - Confidence: ${predictionsData[0].confidence}`;
+      const resultText = `${predictionsData[0]} `;
       resultDiv.innerText = resultText; // Display result
 
-      if (predictionsData[0].class.toLowerCase().includes("areata")) {
+      if (predictionsData[0].toLowerCase().includes("areata")) {
         infoText.innerText =
           "Alopecia areata is an autoimmune disorder that causes sudden, round patches of hair loss on the scalp or other parts of the body. The body’s immune system mistakenly attacks hair follicles, leading to hair shedding in small, circular patches. This type of alopecia can occur at any age, though it often starts in childhood or adolescence. In some cases, the hair may regrow naturally, while in others, the condition can be chronic or recurrent. Though the exact cause is unclear, it is thought to involve genetic and environmental factors. Alopecia areata can affect hair growth in other areas as well, such as eyebrows and eyelashes. While there is no permanent cure, treatments like corticosteroids or immunotherapy can help manage the symptoms.";
         type.innerText = "AREATA";
@@ -36,7 +36,7 @@ window.onload = function () {
         hairTypeImage.style.display = "block";
         hairTypeImage.style.width = "80%";
         circle.style.backgroundColor = "#D9D9D9"; // Adjust width as needed
-      } else if (predictionsData[0].class.toLowerCase().includes("totalis")) {
+      } else if (predictionsData[0].toLowerCase().includes("totalis")) {
         infoText.innerText =
           "Alopecia totalis is an advanced form of alopecia areata, where there is total loss of hair on the scalp. It is a severe, rare condition that results in complete baldness of the scalp, and in some cases, it may progress to alopecia universalis, where all body hair is lost. The exact cause is unknown, but it is believed to be linked to an autoimmune response where the immune system attacks the hair follicles, preventing new hair from growing. This form of alopecia can develop suddenly and may be emotionally challenging, though some individuals experience regrowth, while others may not. Treatments are similar to those for alopecia areata but often involve stronger or more intensive therapies.";
         type.innerText = "TOTALIS";
@@ -45,9 +45,7 @@ window.onload = function () {
         hairTypeImage.style.width = "50%";
         circle.style.backgroundColor = "#D9D9D9"; // Adjust width as needed
         // Adjust width as needed
-      } else if (
-        predictionsData[0].class.toLowerCase().includes("androgenetic")
-      ) {
+      } else if (predictionsData[0].toLowerCase().includes("androgenetic")) {
         infoText.innerText =
           "This type of hair loss is commonly known as pattern baldness. It typically manifests in a receding hairline or thinning of the hair on the crown, often following a predictable pattern. Androgenetic alopecia can affect both men and women, but it is more pronounced in men. It occurs due to genetic factors and the influence of hormones, particularly androgens. In men, it usually starts with a receding hairline and progresses to baldness on the top of the scalp. In women, it often results in diffuse thinning, especially at the crown. This type of alopecia tends to occur gradually, and though it can’t be reversed, treatments like minoxidil and hair transplants can help slow its progression and restore some hair volume.";
 

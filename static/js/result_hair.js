@@ -23,26 +23,31 @@ window.onload = function () {
     const predictionsData = JSON.parse(localStorage.getItem("predictionsData"));
 
     if (predictionsData && predictionsData.length > 0) {
-      const resultText = `${predictionsData[0].class} - Confidence: ${predictionsData[0].confidence}`;
+      const resultText = `${predictionsData[0]} `;
       resultDiv.innerText = resultText; // Display result
 
-      if (predictionsData[0].class.toLowerCase().includes("curly")) {
+      if (predictionsData[0].toLowerCase().includes("curly")) {
         infoText.innerText =
           "Curly hair has distinct, well-defined curls that can range from loose, bouncy curls to tighter, more compact ringlets. This type of hair is characterized by its volume, natural bounce, and texture. Curly hair tends to have a lot of body and can create big, bold looks, but it also requires more moisture and care. The natural oils produced by the scalp have a harder time traveling down the twists and turns of the hair, so curly hair can often feel drier than other types. Because of its texture, curly hair can be more difficult to manage and may require extra care to maintain its shape and prevent frizz. However, with the right products and techniques, curly hair can be stunning and full of life.";
         type.innerText = "CURLY";
         hairTypeImage.src = curlyImageUrl;
+        hairTypeImage.style.width = "20%";
+
         hairTypeImage.style.display = "block";
-      } else if (predictionsData[0].class.toLowerCase().includes("wavy")) {
+      } else if (predictionsData[0].toLowerCase().includes("wavy")) {
         infoText.innerText =
           "Wavy hair is a versatile hair type that falls between straight and curly, with soft, flowing waves that create natural volume. The waves can vary in size, from loose beachy waves to more defined, larger curls. Wavy hair tends to have more texture and body than straight hair, making it ideal for creating more voluminous hairstyles. However, it can also be more prone to frizz, especially in humid conditions. People with wavy hair often find that it can be a bit tricky to style, as the waves may fall flat or become overly frizzy if not managed properly. Overall, wavy hair is the perfect balance between straight and curly, offering a bit of both.";
         type.innerText = "WAVY";
         hairTypeImage.src = wavyImageUrl;
+        hairTypeImage.style.width = "13%";
+
         hairTypeImage.style.display = "block";
-      } else if (predictionsData[0].class.toLowerCase().includes("straight")) {
+      } else if (predictionsData[0].toLowerCase().includes("straight")) {
         infoText.innerText =
           "Straight hair is smooth and naturally sleek, without any curves or curls. It lays flat against the scalp and tends to reflect light, giving it a shiny appearance. This type of hair is typically more resilient to humidity and environmental changes, which helps it retain its sleek look. However, straight hair can sometimes appear greasy or limp more quickly than other hair types since the natural oils from the scalp are able to travel more easily down the length of the hair. Although it's generally easy to manage, straight hair can be prone to looking flat or lacking volume, especially if it's fine or thin.";
         type.innerText = "STRAIGHT";
         hairTypeImage.src = straightImageUrl;
+        hairTypeImage.style.width = "10%";
         hairTypeImage.style.display = "block";
       } else {
         type.innerText = "NOT DETECTED";

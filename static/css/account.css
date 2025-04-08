@@ -1,0 +1,76 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Make the wrapper take up the full viewport height */
+}
+
+.container {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Enable Flexbox */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  margin: 4vw;
+  padding: 1vw;
+}
+
+.result {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  width: fit-content;
+  padding: 2vw;
+}
+#email {
+  font-size: 2vw;
+  padding: 1vw;
+}
+#pred {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 2%;
+  color: #00253f;
+}
+h1 {
+  padding: 0%;
+  margin: 0%;
+}
+h2 {
+  font-size: 3vw;
+  padding: 1vw;
+  margin: 0%;
+}
+.redirect-button {
+  text-align: center;
+  text-decoration: none; /* Remove underline */
+  background-color: #9cd6c4;
+  width: fit-content;
+  height: 2vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.6vw;
+  cursor: pointer;
+  margin-top: 1vw;
+  padding: 1vw;
+  border: none;
+  border-radius: 11px;
+  color: #00253f;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.redirect-button:hover {
+  background-color: #7fcfb1; /* Slightly darker green */
+  transform: scale(1.05); /* Slightly enlarges button */
+}
+p {
+  font-size: 2vw;
+  color: #00253f;
+}

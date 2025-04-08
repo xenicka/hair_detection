@@ -33,6 +33,7 @@ db = SQLAlchemy(app)
 alopecia_types = ['Alopecia Areata', 'Alopecia Totalis','Androgenetic Alopecia']
 hair_types = ['Long Curly Hair', 'Long Straight Hair', 'Long Wavy Hair', ' Short Curly Hair', 'Short Straight Hair', 'Short Wavy Hair', 'Bald']
 
+
 model_for_type = YOLO('best.pt')  
 model_for_alopecia = YOLO('best2.pt')  
 
@@ -54,7 +55,9 @@ with app.app_context():
 
 @app.route('/')
 def home():
-    return render_template('about.html',is_authenticated='user_id' in session)
+    is_authenticated = 'user_id' in session
+    return render_template('about.html', is_authenticated=is_authenticated)
+
 @app.route('/detect_alopecia')
 def home2():
     if 'user_id' not in session:
@@ -90,17 +93,16 @@ def about():
 @app.route('/sign_in')
 def home7():
     return render_template('sign_in.html')
+
 @app.route('/account_page')
 def profile():
     if 'user_id' not in session:
-        return "Unauthorized", 401  # Если нет пользователя в сессии
+        return render_template('sign_in.html')  # Redirect to sign-in if not authenticated
+    user_id = session.get('user_id')
+    user = User.query.get(user_id) if user_id else None
+    return render_template('account_page.html', user=user, is_authenticated=True)
 
-    user = User.query.get(session['user_id'])
-    if not user:
-        return "User not found", 404
-
-    return render_template('account_page.html', user=user)
-
+    
 @app.route('/logout')
 def logout():
     session.pop('user_id', None)
@@ -151,7 +153,6 @@ def sign_in():
     email = data.get('email')
     password = data.get('password')
     
-
     existing_user = User.query.filter_by(email=email).first()
     if not existing_user:
         return jsonify({'success': False, 'message': 'Email not registered.'}), 400
@@ -159,11 +160,10 @@ def sign_in():
     if not check_password_hash(existing_user.password, password):
         return jsonify({'success': False, 'message': 'Incorrect password.'}), 400
 
-    session['user_id'] = existing_user.id  # Сохраняем ID пользователя
-
-
-    return jsonify({'success': True, 'message': 'Login successful!'}), 201
+    session['user_id'] = existing_user.id  # Only set this after successful login
     
+    return jsonify({'success': True, 'message': 'Login successful!'}), 201
+
 
 @app.route('/upload_hair', methods=['POST'])
 def upload_for_hair_type():
@@ -173,7 +173,7 @@ def upload_for_hair_type():
 def upload_for_alopecia_type():
     return upload_file(type=alopecia_types,model=model_for_alopecia,option="alopecia")
 
-def upload_file(type,model,option):
+def upload_file(type, model, option):
     # Check if a file was uploaded
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'})
@@ -190,7 +190,6 @@ def upload_file(type,model,option):
         return jsonify({'error': f'Error loading image: {str(e)}'})
 
     # Make predictions
-    
     try:
         results = model.predict(source=img, conf=0.25)
         print("Predictions made.")
@@ -211,7 +210,7 @@ def upload_file(type,model,option):
         
         # Format predictions with confidence percentages
         formatted_predictions = [
-            {'class': predictions[0]['class'], 'confidence': f"{predictions[0]['confidence'] * 100:.2f}%" }
+            f"{predictions[0]['class']} - Confidence {predictions[0]['confidence'] * 100:.2f}%"
             # for pred in predictions
         ]
 
@@ -231,10 +230,9 @@ def upload_file(type,model,option):
         else:
             print("No user in session.")
     else:
-        formatted_predictions = [{'class': 'No predictions', 'confidence': '0.00%'}]
+        formatted_predictions = ['No predictions - confidence 0.00%']
 
     return jsonify({'predictions': formatted_predictions})
-
 
 
 if __name__ == "__main__":

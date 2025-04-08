@@ -184,13 +184,7 @@ h1 {
   z-index: 10; /* Ensures it is above the blur overlay */
   display: none; /* Initially hidden */
 }
-#failed_detection {
-  position: absolute;
-  align-items: center;
-  transform: translate(-50%, -50%);
-  z-index: 10; /* Ensures it is above the blur overlay */
-  display: none; /* Initially hidden */
-}
+
 #type {
   margin-top: 1vw;
   font-size: 1.2vw;

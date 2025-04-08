@@ -1,27 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
-  </head>
-  <body>
-    <h1>Welcome, {{ user.name }}</h1>
-    <p>Email: {{ user.email }}</p>
-    {% if user.hair_type %}
-    <h2>Hair Prediction Results:</h2>
-    <p>{{ user.hair_type }}</p>
-    <!-- You can format it more, if necessary -->
-    {% else %}
-    <p>No predictions available yet.</p>
-    {% endif %} {% if user.alopecia_type %}
-    <h2>Alopecia Prediction Results:</h2>
-    <p>{{ user.alopecia_type }}</p>
-    <!-- You can format it more, if necessary -->
-    {% else %}
-    <p>No predictions for alopecia available yet.</p>
-    {% endif %}
+{% extends "skelet.html" %}
 
-    <a href="/sign_in">Logout</a>
-  </body>
-</html>
+<!-- title -->
+{% block title %}Account page{% endblock %}
+<!-- css  -->
+{% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/account.css') }}"
+/>
+{% endblock %}
+
+<!-- main text -->
+{% block content %}
+<div class="wrapper">
+  <div class="container">
+    <h1>Welcome, {{ user.name }}</h1>
+    <p id ='email'>Email: {{ user.email }}</p>
+    {% if user.hair_type %}
+    <h2>Hair Prediction For Hair Type:</h2>
+    <div class="result">{{ user.hair_type.strip("[]'") }}</div>
+  
+    {% else %}
+    <p id="pred">
+      <h2>Hair Prediction For Hair Type:</h2>
+      <p>You don't have a prediction yet.</p>
+      <a href="/detect_hair" class="redirect-button">Detect hair type</a>
+    </p>    {% endif %} {% if user.alopecia_type %}
+    <h2>Alopecia Prediction Results:</h2>
+    <div class="result">{{ user.alopecia_type.strip("[]'") }}</div>
+    {% else %}
+    <h2>Alopecia Prediction Results:</h2>
+    <p>You don't have a prediction yet.</p>
+    <a href="/detect_alopecia" class="redirect-button">Detect alopecia type</a>  </p>      {% endif %}
+  </div>
+</div>
+
+  {% endblock %}
+  <!-- script -->
+  {% block script %}
+  <script src="{{ url_for('static', filename='js/account.js') }}"></script>
+  {% endblock %}
+  
+</div>
