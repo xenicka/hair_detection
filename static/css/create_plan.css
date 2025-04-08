@@ -1,0 +1,225 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: block;
+}
+#progress-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centers items vertically */
+  margin-bottom: 3vw;
+  margin-top: 3vw;
+}
+
+.step {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  margin-right: 2vw;
+  margin-left: 2vw;
+  background-color: white;
+  transition: background-color 0.3s;
+}
+
+.step.active {
+  background-color: #b0c4b7; /* Активний крок */
+}
+
+.step.completed {
+  background-color: #ccc; /* Завершений крок */
+}
+
+.question {
+  display: none;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  width: 100%;
+}
+
+.question.active {
+  display: block;
+  opacity: 1;
+  position: relative;
+}
+.label-container {
+  margin-bottom: 2vw;
+}
+button {
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+}
+.button {
+  background-color: #9cd6c4;
+  width: fit-content;
+  height: 4vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.6vw;
+  cursor: pointer;
+  border: none;
+  margin: 2vw;
+  border-radius: 11px;
+  color: #00253f;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.button:hover {
+  background-color: #7fcfb1; /* Slightly darker green */
+  transform: scale(1.05); /* Slightly enlarges button */
+}
+button.next {
+  background-color: #9cd6c4;
+  width: 4vw;
+  height: 4vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.6vw;
+  cursor: pointer;
+  border: none;
+  border-radius: 11px;
+  color: #00253f;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button.next:hover {
+  background-color: #7fcfb1; /* Slightly darker green */
+  transform: scale(1.05); /* Slightly enlarges button */
+}
+
+button.prev {
+}
+select {
+  padding: 1vw 1vw;
+  font-size: 2vw;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  color: #333;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 60%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+select:hover {
+  border-color: #aaa;
+}
+select:focus {
+  border-color: #b0c4b7;
+  box-shadow: 0 0 0 4px #d9e4dd;
+}
+label {
+  font-size: 4vw;
+  font-weight: 600;
+  color: #00253f;
+  margin-bottom: 1vw;
+  display: block;
+  text-align: center;
+}
+.broken-top-border {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  height: 20vw;
+  width: 45vw;
+  /* Вместо фиксированной высоты используем min-height,
+         чтобы блок автоматически расширялся под контент */
+
+  /* Задаём боковые и нижнюю границы */
+  border-left: 0.2vw solid #999;
+  border-right: 0.2vw solid #999;
+  border-bottom: 0.2vw solid #999;
+
+  /* Для псевдоэлементов */
+  position: relative;
+  margin-bottom: 3vw;
+  padding: 2vw; /* внутренние отступы, чтобы текст не прилипал к краям */
+}
+
+/* Псевдоэлементы для двух отрезков сверху */
+.broken-top-border::before,
+.broken-top-border::after {
+  content: "";
+  position: absolute;
+  top: 0; /* Расположение у верхней границы */
+  height: 0.2vw; /* Толщина линии */
+  background: #999; /* Цвет линии */
+}
+
+/* Левая часть верхней границы */
+.broken-top-border::before {
+  left: 0;
+  width: 20%;
+  height: 0.1vw; /* Толщина линии */
+}
+
+/* Правая часть верхней границы */
+.broken-top-border::after {
+  right: 0;
+  width: 20%;
+  height: 0.1vw; /* Толщина линии */
+}
+.broken-top-border .title {
+  position: absolute;
+  top: 0; /* Выравниваем по верхнему краю контейнера */
+  left: 50%; /* Горизонтальный центр контейнера */
+  transform: translate(-50%, -50%);
+  padding: 0 10px; /* Внутренние отступы */
+  font-size: 1.6vw; /* Размер шрифта */
+  font-weight: bold;
+  margin: 0; /* Сбрасываем отступы у заголовка */
+}
+#multiStepForm {
+  display: flex;
+  align-items: center; /* vertical center */
+  justify-content: center; /* horizontal center */
+  text-align: center;
+  position: relative;
+}
+#result {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 4vw 3vw;
+  max-width: 60vw;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: none;
+  margin-bottom: 3vw;
+}
+
+#result h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#answerList {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 15px;
+  font-family: "Arial", sans-serif;
+  font-size: 1rem;
+}
+
+#answerList li {
+  color: #555;
+  margin-bottom: 8px;
+}
+#googleCalendarButton {
+  display: none; /* Hide the button by default */
+}

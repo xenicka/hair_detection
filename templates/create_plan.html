@@ -1,20 +1,158 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hair Care Reminder</title>
-  </head>
-  <body>
-    <h2>Set Up Your Hair Care Routine</h2>
+{% extends "skelet.html" %}
+<!-- title -->
+{% block title %}Hair plan{% endblock %}
+<!-- css  -->
+{% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/create_plan.css') }}"
+/>
+{% endblock %}
+<!-- main text -->
+{% block content %}
+<div class="container">
+  <div id="progress-container">
+    <div class="step" id="step1"></div>
+    <div class="step" id="step2"></div>
+    <div class="step" id="step3"></div>
+    <div class="step" id="step4"></div>
+    <div class="step" id="step5"></div>
+    <div class="step" id="step6"></div>
+    <div class="step" id="step7"></div>
+  </div>
 
-    <label for="washingFrequency">How often do you wash your hair?</label>
-    <select id="washingFrequency" name="washingFrequency">
-      <option value="daily">Every day or every other day</option>
-      <option value="2-3">Every 2-3 days</option>
-      <option value="4-7">Every 4-7 days</option>
-    </select>
-    <button onclick="addToGoogleCalendar()">Add to Google Calendar</button>
-    <script src="{{ url_for('static', filename='js/create_plan.js') }}"></script>
-  </body>
-</html>
+    <form id="multiStepForm">
+        <div class="broken-top-border"style="display: block;">
+          <h1 class="title">Create your personal  plan</h1>
+
+          <div class="question" id="question1">
+            <label for="q1">How often do you wash your hair?</label>
+            <div class="option-container">
+              <select id="q1" name="q1">
+                <option value="option3">4-7 times per week</option>
+                <option value="option1">2-3 times per week</option>
+                <option value="option2">every day</option>
+              </select>
+            </div>
+            <button type="button" class="next" onclick="nextQuestion(2)">
+              &rarr; <!-- Символ стрелки -->
+            </button>
+          </div>
+          <div class="question" id="question2">
+            <label for="q2">What type of hair do you have?</label>
+            <div class="option-container">
+              <select id="q2" name="q2">
+                <option value="option3">straight</option>
+                <option value="option1">wavy</option>
+                <option value="option2">curly</option>
+              </select>
+            </div>
+            <button type="button" class="next" onclick="prevQuestion(1)">
+              &larr; <!-- Символ стрелки влево -->
+            </button>
+            <button type="button" class="next" onclick="nextQuestion(3)">
+              &rarr; <!-- Символ стрелки -->
+            </button>
+          </div>
+          <div class="question" id="question3">
+            <label for="q3">How would you describe  your scalp?</label>
+            <div class="option-container">
+              <select id="q3" name="q3">
+                <option value="option3">dry</option>
+                <option value="option1">oily</option>
+                <option value="option2">normal</option>
+              </select>
+            </div>
+            <button type="button" class="next" onclick="prevQuestion(2)">
+              &larr; <!-- Символ стрелки влево -->
+            </button>
+            <button type="button" class="next" onclick="nextQuestion(4)">
+              &rarr; <!-- Символ стрелки -->
+            </button>
+          </div>
+          <div class="question" id="question4">
+            <label for="q4">Have you noticed any hair loss or thinning?</label>
+            <div class="option-container">
+              <select id="q4" name="q4">
+                <option value="option3">yes</option>
+                <option value="option1">no</option>
+                <option value="option2">seasonly</option>
+              </select>
+            </div>
+            <button type="button" class="next" onclick="prevQuestion(3)">
+              &larr; <!-- Символ стрелки влево -->
+            </button>
+            <button type="button" class="next" onclick="nextQuestion(5)">
+              &rarr; <!-- Символ стрелки -->
+            </button>
+          </div>
+          <div class="question" id="question5">
+            <label for="q5">Do you currently experience dandruff?</label>
+            <div class="option-container">
+              <select id="q5" name="q5">
+                <option value="option1">no</option>
+                <option value="option3">yes</option>
+              </select>
+            </div>
+            <button type="button" class="next" onclick="prevQuestion(4)">
+              &larr; <!-- Символ стрелки влево -->
+            </button>
+            <button type="button" class="next" onclick="nextQuestion(6)">
+              &rarr; <!-- Символ стрелки -->
+            </button>
+          </div>
+          <div class="question" id="question6">
+            <label for="q6">Do you use any hair styling products?</label>
+            <div class="option-container">
+              <select id="q6" name="q6">
+                <option value="option2">sometimes</option>
+                <option value="option3">yes</option>
+                <option value="option1">no</option>
+
+              </select>
+            </div>
+            <button type="button" class="next" onclick="prevQuestion(5)">
+              &larr; <!-- Символ стрелки влево -->
+            </button>
+            <button type="button" class="next" onclick="nextQuestion(7)">
+              &rarr; <!-- Символ стрелки -->
+            </button>
+          </div>
+          <div class="question" id="question7">
+            <label for="q7">Do you use any heat styling tools on your hair?</label>
+            <div class="option-container">
+              <select id="q7" name="q7">
+                <option value="option2">occasionally</option>
+                <option value="option3">yes</option>
+                <option value="option1">no</option>
+
+              </select>
+            </div>
+            <button type="button" class="next" onclick="prevQuestion(6)">
+              &larr; <!-- Символ стрелки влево -->
+            </button>
+            <button type="button" class="next" onclick="showResults()">
+              &rarr; <!-- Символ стрелки -->
+            </button>
+          
+          </div>
+      </div>
+      <div id="result" style="display: none;">
+        <h2>Your Answers:</h2>
+        <ul id="answerList"></ul>
+        <button type="button" class="button" onclick="goBackToQuestions()">&#8592; Go back to questions</button>
+        <button id="googleCalendarButton" class="button"onclick="addToGoogleCalendar()">Add to Google Calendar</button>
+
+      </div>
+
+      
+    </form>
+  </div>
+
+  <!-- <button onclick="addToGoogleCalendar()">Add to Google Calendar</button> -->
+  {% endblock %}¬
+  <!-- script -->
+  {% block script %}
+  <script src="{{ url_for('static', filename='js/create_plan.js') }}"></script>
+  {% endblock %}
+</div>
