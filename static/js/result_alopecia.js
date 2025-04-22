@@ -103,7 +103,7 @@ function retry() {
   // Option 1: Reload the page
   window.location.reload();
 
-  window.location.href = "/detect_hair"; // Replace 'your_page_url_here' with the desired URL
+  window.location.href = "/detect_alopecia"; // Replace 'your_page_url_here' with the desired URL
 }
 function updateText(element) {
   // Create falling hearts when hovering over the circle

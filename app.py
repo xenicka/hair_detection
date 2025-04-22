@@ -1,7 +1,7 @@
 
 import webbrowser
 import threading
-
+import os
 from flask import Flask, request, jsonify, render_template,session, url_for
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
@@ -51,6 +51,8 @@ class User(db.Model):
 
 with app.app_context():
     db.create_all()
+    print("📂 Database file path:", os.path.abspath(app.config['SQLALCHEMY_DATABASE_URI'].replace('sqlite:///', '')))
+
 
 
 @app.route('/')

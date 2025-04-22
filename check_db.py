@@ -9,5 +9,5 @@ with app.app_context():
 
     # Print all entries from the 'user' table
     users = User.query.all()  # This assumes you have a User model defined with SQLAlchemy
-    for user in users:
-        print(f'ID: {user.id}, Name: {user.name}, Email: {user.email},Hair type {user.hair_type}, alopecia{user.alopecia_type}',)  # Adjust fields as necessary
+    for user in User.query.all():
+        print(user)
