@@ -1,4 +1,13 @@
 /* navbar up */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow-x: hidden;
+}
+
 .img-container img {
   width: 100%;
   height: 100%;
@@ -89,12 +98,15 @@ h1 {
 
 .features {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Две колонки */
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
-  margin-left: 30vw;
-  margin-right: 30vw;
+  max-width: 1000px;
+  margin: 0 auto;
   gap: 1vw;
+  padding: 0 2vw;
+  margin-left: 25vw;
+  margin-right: 25vw;
 }
 
 .feature {
@@ -206,10 +218,4 @@ h1 {
 .img-box img {
   display: block;
   margin: 3vw;
-}
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
 }
