@@ -1,7 +1,11 @@
+/* navbar up */
 html,
 body {
   margin: 0;
   padding: 0;
+}
+body {
+  overflow-x: hidden;
 }
 
 .container {

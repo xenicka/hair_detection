@@ -1,9 +1,12 @@
+/* navbar up */
 html,
 body {
   margin: 0;
   padding: 0;
 }
-
+body {
+  overflow-x: hidden;
+}
 .container {
   position: relative; /* Make the container the reference point for absolute positioning */
   display: block;
